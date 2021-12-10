@@ -6,12 +6,10 @@ trait ImageUpload
 {
     public function uploadImage($user, $image)
     {
-        $path = $image->store('images');
-
-        $path = explode("/", $path)[2];
+        $image->store('public/images');
 
         $uploadedImage = $user->images()->create([
-            'path' => $path,
+            'path' => $image->hashName(),
             'original_name' => $image->getClientOriginalName(),
             'mime_type' => $image->getMimeType(),
             'file_size' => $image->getSize(),

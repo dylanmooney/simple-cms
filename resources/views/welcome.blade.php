@@ -29,6 +29,8 @@
                     <div class="flex-shrink-0">
                         <img class="object-cover w-full h-60" src={{URL::asset("images/" . $post->thumbnail->path)}}
                         alt="">
+
+
                     </div>
                     <div class="flex flex-col justify-between flex-1 p-6 bg-white">
                         <div class="flex-1">
