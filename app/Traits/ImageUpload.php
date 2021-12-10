@@ -6,7 +6,7 @@ trait ImageUpload
 {
     public function uploadImage($user, $image)
     {
-        $path = $image->store('public/images');
+        $path = $image->store('images');
 
         $path = explode("/", $path)[2];
 
