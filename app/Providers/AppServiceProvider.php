@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Observers\PostObserver;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,5 +33,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('admin', function (User $user) {
             return $user->hasRole('admin', 'author', 'editor');
         });
+
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
     }
 }
